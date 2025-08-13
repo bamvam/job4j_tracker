@@ -1,6 +1,6 @@
 package ru.job4j.oop;
 
-public class cat {
+public class Сat {
 
     private String food;
     private String name;
@@ -19,13 +19,13 @@ public class cat {
 
     public static void main(String[] args) {
         System.out.println("There is gav's food.");
-        cat gav = new cat();
+        Сat gav = new Сat();
         gav.giveNick("Gav");  // Устанавливаем кличку
         gav.eat("cutlet");
         gav.show();
 
         System.out.println("There is black's food.");
-        cat black = new cat();
+        Сat black = new Сat();
         black.giveNick("Black");  // Устанавливаем кличку
         black.eat("fish");
         black.show();
