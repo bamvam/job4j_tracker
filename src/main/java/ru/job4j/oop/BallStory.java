@@ -2,14 +2,12 @@ package ru.job4j.oop;
 
 public class BallStory {
     public static void main(String[] args) {
-        // Создаем персонажей
         Ball ball = new Ball();
         Hare hare = new Hare();
         Wolf wolf = new Wolf();
         Fox fox = new Fox();
 
-        System.out.println("Начало истории про Колобка:\n");
-
+        System.out.println("История Колобка:\n");
         hare.tryEat(ball);
         wolf.tryEat(ball);
         fox.tryEat(ball);
