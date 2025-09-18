@@ -12,8 +12,8 @@ public class Battery {
     }
 
     public void exchange(Battery another) {
-        another.load += this.load; // Добавляем заряд к другой батарее
-        this.load = 0;             // Обнуляем текущую батарею
+        another.load += this.load;
+        this.load = 0;
     }
 
     public static void main(String[] args) {
