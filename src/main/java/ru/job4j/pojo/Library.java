@@ -8,22 +8,19 @@ public class Library {
         Book book3 = new Book("Clean code", 500);
         Book book4 = new Book("Data Structures", 400);
 
-        // Создаем массив и добавляем книги
         Book[] books = new Book[4];
         books[0] = book1;
         books[1] = book2;
         books[2] = book3;
         books[3] = book4;
 
-        // Выводим содержимое массива
         System.out.println("Все книги в библиотеке:");
         for (int i = 0; i < books.length; i++) {
             Book book = books[i];
             System.out.println(book.getName() + " - " + book.getPages() + " страниц");
         }
 
-        // Меняем местами книги с индексом 0 и 3
-        System.out.println("\nПосле замены книг с индексом 0 и 3:");
+        System.out.println("После замены книг с индексом 0 и 3:");
         Book temp = books[0];
         books[0] = books[3];
         books[3] = temp;
@@ -33,8 +30,7 @@ public class Library {
             System.out.println(book.getName() + " - " + book.getPages() + " страниц");
         }
 
-        // Выводим книги с именем "Clean code"
-        System.out.println("\nКниги с названием 'Clean code':");
+        System.out.println("Книги с названием 'Clean code':");
         for (int i = 0; i < books.length; i++) {
             Book book = books[i];
             if ("Clean code".equals(book.getName())) {
