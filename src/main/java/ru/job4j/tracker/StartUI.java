@@ -4,7 +4,6 @@ import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 
 public class StartUI {
-
     public static void main(String[] args) {
         Item item = new Item();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern(
