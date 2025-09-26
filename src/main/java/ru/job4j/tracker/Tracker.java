@@ -67,6 +67,13 @@ public class Tracker {
             return false;
         }
 
+        int startPos = index + 1;
+        int length = size - index - 1;
+
+        if (length > 0) {
+            System.arraycopy(items, startPos, items, index, length);
+        }
+
         items[size - 1] = null;
         size--;
         return true;
