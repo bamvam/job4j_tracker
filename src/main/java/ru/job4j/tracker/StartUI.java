@@ -39,6 +39,18 @@ public class StartUI {
                 } else {
                     System.out.println("Ошибка замены заявки.");
                 }
+            } else if (select == 3) {
+                // Блок для удаления заявки
+                System.out.println("=== Удаление заявки ===");
+                System.out.print("Введите id: ");
+                int id = Integer.parseInt(scanner.nextLine());
+                Item item = tracker.findById(id);
+                if (item != null) {
+                    tracker.delete(id);
+                    System.out.println("Заявка удалена успешно.");
+                } else {
+                    System.out.println("Ошибка удаления заявки.");
+                }
             } else if (select == 6) {
                 run = false;
             }
@@ -50,6 +62,9 @@ public class StartUI {
                 "Добавить новую заявку",
                 "Показать все заявки",
                 "Редактировать заявку",
+                "Удалить заявку",
+                "Найти заявку по id",
+                "Найти заявки по имени",
                 "Выйти из программы"
         };
         for (int i = 0; i < menu.length; i++) {
