@@ -51,7 +51,6 @@ public class StartUI {
                     System.out.println("Ошибка удаления заявки.");
                 }
             } else if (select == 4) {
-                // Блок для поиска заявки по id
                 System.out.println("=== Вывод заявки по id ===");
                 System.out.print("Введите id: ");
                 int id = Integer.parseInt(scanner.nextLine());
