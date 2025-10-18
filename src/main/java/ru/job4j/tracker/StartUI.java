@@ -1,13 +1,10 @@
 package ru.job4j.tracker;
 
-import java.util.Scanner;
-
 public class StartUI {
 
-    public static void createItem(Scanner scanner, Tracker tracker) {
+    public static void createItem(Input input, Tracker tracker) {
         System.out.println("=== Создание новой заявки ===");
-        System.out.print("Введите имя: ");
-        String name = scanner.nextLine();
+        String name = input.askStr("Введите имя: ");
         Item item = new Item(name);
         tracker.add(item);
         System.out.println("Добавленная заявка: " + item);
@@ -25,12 +22,10 @@ public class StartUI {
         }
     }
 
-    public static void replaceItem(Scanner scanner, Tracker tracker) {
+    public static void replaceItem(Input input, Tracker tracker) {
         System.out.println("=== Редактирование заявки ===");
-        System.out.print("Введите id: ");
-        int id = Integer.parseInt(scanner.nextLine());
-        System.out.print("Введите имя: ");
-        String name = scanner.nextLine();
+        int id = input.askInt("Введите id: ");
+        String name = input.askStr("Введите имя: ");
         Item item = new Item(name);
         if (tracker.replace(id, item)) {
             System.out.println("Заявка изменена успешно.");
@@ -39,10 +34,9 @@ public class StartUI {
         }
     }
 
-    public static void deleteItem(Scanner scanner, Tracker tracker) {
+    public static void deleteItem(Input input, Tracker tracker) {
         System.out.println("=== Удаление заявки ===");
-        System.out.print("Введите id: ");
-        int id = Integer.parseInt(scanner.nextLine());
+        int id = input.askInt("Введите id: ");
         Item item = tracker.findById(id);
         if (item != null) {
             tracker.delete(id);
@@ -52,10 +46,9 @@ public class StartUI {
         }
     }
 
-    public static void findItemById(Scanner scanner, Tracker tracker) {
+    public static void findItemById(Input input, Tracker tracker) {
         System.out.println("=== Вывод заявки по id ===");
-        System.out.print("Введите id: ");
-        int id = Integer.parseInt(scanner.nextLine());
+        int id = input.askInt("Введите id: ");
         Item item = tracker.findById(id);
         if (item != null) {
             System.out.println(item);
@@ -64,10 +57,9 @@ public class StartUI {
         }
     }
 
-    public static void findItemByName(Scanner scanner, Tracker tracker) {
+    public static void findItemByName(Input input, Tracker tracker) {
         System.out.println("=== Вывод заявок по имени ===");
-        System.out.print("Введите имя: ");
-        String name = scanner.nextLine();
+        String name = input.askStr("Введите имя: ");
         Item[] items = tracker.findByName(name);
         if (items.length > 0) {
             for (Item item : items) {
@@ -78,24 +70,23 @@ public class StartUI {
         }
     }
 
-    public void init(Scanner scanner, Tracker tracker) {
+    public void init(Input input, Tracker tracker) {
         boolean run = true;
         while (run) {
             showMenu();
-            System.out.print("Выбрать: ");
-            int select = Integer.parseInt(scanner.nextLine());
+            int select = input.askInt("Выбрать: ");
             if (select == 0) {
-                createItem(scanner, tracker);
+                createItem(input, tracker);
             } else if (select == 1) {
                 findAllItems(tracker);
             } else if (select == 2) {
-                replaceItem(scanner, tracker);
+                replaceItem(input, tracker);
             } else if (select == 3) {
-                deleteItem(scanner, tracker);
+                deleteItem(input, tracker);
             } else if (select == 4) {
-                findItemById(scanner, tracker);
+                findItemById(input, tracker);
             } else if (select == 5) {
-                findItemByName(scanner, tracker);
+                findItemByName(input, tracker);
             } else if (select == 6) {
                 run = false;
             }
