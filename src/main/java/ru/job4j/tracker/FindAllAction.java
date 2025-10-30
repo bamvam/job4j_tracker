@@ -6,7 +6,6 @@ public class FindAllAction implements UserAction {
         return "Показать все заявки";
     }
 
-
     @Override
     public boolean execute(Input input, Tracker tracker) {
         System.out.println("=== Вывод всех заявок ===");

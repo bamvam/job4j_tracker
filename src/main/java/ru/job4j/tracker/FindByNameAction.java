@@ -6,7 +6,6 @@ public class FindByNameAction implements UserAction {
         return "Показать заявки по имени";
     }
 
-
     @Override
     public boolean execute(Input input, Tracker tracker) {
         System.out.println("=== Вывод заявок по имени ===");

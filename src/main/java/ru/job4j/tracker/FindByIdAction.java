@@ -6,7 +6,6 @@ public class FindByIdAction implements UserAction {
         return "Показать заявку по id";
     }
 
-
     @Override
     public boolean execute(Input input, Tracker tracker) {
         System.out.println("=== Вывод заявки по id ===");
