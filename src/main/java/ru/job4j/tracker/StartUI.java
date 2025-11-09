@@ -1,8 +1,13 @@
 package ru.job4j.tracker;
 
+import ru.job4j.tracker.Input;
+import ru.job4j.tracker.ValidateInput;
+import ru.job4j.tracker.ConsoleInput;
+import ru.job4j.tracker.Output;
+import ru.job4j.tracker.ConsoleOutput;
+
 public class StartUI {
     private final Output output;
-
 
     public StartUI(Output output) {
         this.output = output;
@@ -12,7 +17,8 @@ public class StartUI {
         boolean run = true;
         while (run) {
             showMenu(actions);
-            int select = input.askInt("Выбрать: ");
+            // Убедитесь, что здесь передаются 2 аргумента
+            int select = input.askInt("Выбрать: ", actions.length);
             UserAction action = actions[select];
             run = action.execute(input, tracker);
         }
@@ -27,7 +33,7 @@ public class StartUI {
 
     public static void main(String[] args) {
         Output output = new ConsoleOutput();
-        Input input = new ValidateInput();
+        Input input = new ValidateInput(output, new ConsoleInput());
         Tracker tracker = new Tracker();
         UserAction[] actions = {
                 new CreateAction(output),
