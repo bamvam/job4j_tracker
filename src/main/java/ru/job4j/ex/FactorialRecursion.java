@@ -8,7 +8,6 @@ public class FactorialRecursion {
         return calc(n - 1) * n;
     }
 
-
     public static void main(String[] args) {
         int result = calc(3);
         System.out.println(result);
