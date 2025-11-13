@@ -1,5 +1,4 @@
 package ru.job4j.tracker;
-
 import ru.job4j.tracker.Input;
 import ru.job4j.tracker.ValidateInput;
 import ru.job4j.tracker.ConsoleInput;
