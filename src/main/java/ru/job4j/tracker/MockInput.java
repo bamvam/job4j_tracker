@@ -17,4 +17,14 @@ public class MockInput implements Input {
     public int askInt(String question) {
         return Integer.parseInt(askStr(question));
     }
+
+    // Добавляем недостающий метод
+    @Override
+    public int askInt(String question, int max) {
+        int select = askInt(question);
+        if (select < 0 || select >= max) {
+            throw new IllegalStateException("Out of range");
+        }
+        return select;
+    }
 }

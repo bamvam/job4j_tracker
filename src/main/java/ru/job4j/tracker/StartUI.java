@@ -17,7 +17,6 @@ public class StartUI {
         boolean run = true;
         while (run) {
             showMenu(actions);
-            // Убедитесь, что здесь передаются 2 аргумента
             int select = input.askInt("Выбрать: ", actions.length);
             UserAction action = actions[select];
             run = action.execute(input, tracker);
