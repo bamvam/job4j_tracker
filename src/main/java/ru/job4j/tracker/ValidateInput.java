@@ -1,14 +1,12 @@
 package ru.job4j.tracker;
 
-import ru.job4j.tracker.Output;
-
 public class ValidateInput implements Input {
-    private final Output output;
     private final Input input;
+    private final Output output;
 
-    public ValidateInput(Output output, Input input) {
-        this.output = output;
+    public ValidateInput(Input input, Output output) {
         this.input = input;
+        this.output = output;
     }
 
     @Override
@@ -25,7 +23,7 @@ public class ValidateInput implements Input {
                 value = input.askInt(question);
                 invalid = false;
             } catch (NumberFormatException nfe) {
-                output.println("Пожалуйста, введите корректные данные (число).");
+                output.println("Пожалуйста, введите корректные данные (число)");
             }
         } while (invalid);
         return value;
@@ -37,12 +35,14 @@ public class ValidateInput implements Input {
         int value = -1;
         do {
             try {
-                value = input.askInt(question, max);
-                invalid = false;
+                value = input.askInt(question);
+                if (value < 0 || value >= max) {
+                    output.println("Неверный ввод, вы можете выбрать: 0 .. " + (max - 1));
+                } else {
+                    invalid = false;
+                }
             } catch (NumberFormatException nfe) {
-                output.println("Пожалуйста, введите корректные данные (число).");
-            } catch (IllegalStateException ise) {
-                output.println("Пожалуйста, выберите пункт меню от 0 до " + (max - 1));
+                output.println("Пожалуйста, введите корректные данные (число)");
             }
         } while (invalid);
         return value;

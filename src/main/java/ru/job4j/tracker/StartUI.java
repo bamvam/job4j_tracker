@@ -7,10 +7,10 @@ import ru.job4j.tracker.Output;
 import ru.job4j.tracker.ConsoleOutput;
 
 public class StartUI {
-    private final Output output;
+    private final Output out;
 
-    public StartUI(Output output) {
-        this.output = output;
+    public StartUI(Output out) {
+        this.out = out;
     }
 
     public void init(Input input, Tracker tracker, UserAction[] actions) {
@@ -24,15 +24,15 @@ public class StartUI {
     }
 
     private void showMenu(UserAction[] actions) {
-        output.println("Меню:");
+        out.println("Меню:");
         for (int index = 0; index < actions.length; index++) {
-            output.println(index + ". " + actions[index].name());
+            out.println(index + ". " + actions[index].name());
         }
     }
 
     public static void main(String[] args) {
         Output output = new ConsoleOutput();
-        Input input = new ValidateInput(output, new ConsoleInput());
+        Input input = new ValidateInput(new ConsoleInput(), output);
         Tracker tracker = new Tracker();
         UserAction[] actions = {
                 new CreateAction(output),
