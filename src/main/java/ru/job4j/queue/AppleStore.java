@@ -2,7 +2,6 @@ package ru.job4j.queue;
 
 import java.util.Queue;
 
-
 public class AppleStore {
     private final Queue<Customer> queue;
 
