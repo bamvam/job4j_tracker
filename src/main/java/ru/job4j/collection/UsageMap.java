@@ -11,6 +11,8 @@ public class UsageMap {
         map.put("ivanov@gmail.com", "Ivan Ivanov");
         map.put("petrov@mail.ru", "Petr Petrov");
 
+        map.put("parsentev@yandex.ru", "Petr Arsentev Sergeevich");
+
         for (String key : map.keySet()) {
             String value = map.get(key);
             System.out.println(key + " = " + value);
